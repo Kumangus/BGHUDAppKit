@@ -842,6 +842,7 @@
 			break;
 			
 		case NSImageOverlaps:
+        default:
 			
 			break;
 	}
