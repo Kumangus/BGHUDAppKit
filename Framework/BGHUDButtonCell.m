@@ -302,7 +302,7 @@
 					break;
 			}
 			
-			[image setFlipped: YES];
+			// [image setFlipped: YES];
 			
 			//Draw the image based on enabled state
 			if([self isEnabled]) {
