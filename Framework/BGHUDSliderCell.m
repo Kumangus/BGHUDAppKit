@@ -47,7 +47,7 @@
 	
 	if(self) {
 		
-		self.themeKey = @"gradientTheme";
+		self.themeKey = @"flatTheme";
 	}
 	
 	return self;
@@ -63,7 +63,7 @@
 			
 			self.themeKey = [aDecoder decodeObjectForKey: @"themeKey"];
 		} else {
-			self.themeKey = @"gradientTheme";
+			self.themeKey = @"flatTheme";
 		}
 	}
 	
@@ -140,6 +140,7 @@
 - (void)drawHorizontalBarInFrame:(NSRect)frame {
 	
     frame = [self controlView].bounds;
+    // NSLog(@"%@", NSStringFromRect(frame));
 	// Adjust frame based on ControlSize
 	switch ([self controlSize]) {
 			
@@ -156,11 +157,11 @@
 				}
 			} else {
 				
-				frame.origin.y = frame.origin.y + (((frame.origin.y + frame.size.height) /2) - 2.5f);
+				frame.origin.y = frame.origin.y + (((frame.origin.y + frame.size.height) /2) - 2);
 			}
 			
-			frame.origin.x += 2.5f;
-			frame.origin.y += 0.5f;
+			frame.origin.x += 3;
+			//frame.origin.y += 0.5f;
 			frame.size.width -= 5;
 			frame.size.height = 5;
 			break;
@@ -178,11 +179,11 @@
 				}
 			} else {
 				
-				frame.origin.y = frame.origin.y + (((frame.origin.y + frame.size.height) /2) - 2.5f);
+				frame.origin.y = frame.origin.y + (((frame.origin.y + frame.size.height) /2) - 2);
 			}
 			
-			frame.origin.x += 0.5f;
-			frame.origin.y += 0.5f;
+			frame.origin.x += 1;
+			//frame.origin.y += 0.5f;
 			frame.size.width -= 1;
 			frame.size.height = 5;
 			break;
@@ -203,8 +204,8 @@
 				frame.origin.y = frame.origin.y + (((frame.origin.y + frame.size.height) /2) - 2);
 			}
 			
-			frame.origin.x += 0.5f;
-			frame.origin.y += 0.5f;
+			frame.origin.x += 1;
+			//frame.origin.y += 0.5f;
 			frame.size.width -= 1;
 			frame.size.height = 3;
 			break;
@@ -219,15 +220,15 @@
 		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] sliderTrackColor] set];
 		[path fill];
 		
-		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
-		[path stroke];
+//		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
+//		[path stroke];
 	} else {
 		
 		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] disabledSliderTrackColor] set];
 		[path fill];
 		
-		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] disabledStrokeColor] set];
-		[path stroke];
+//		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] disabledStrokeColor] set];
+//		[path stroke];
 	}
 	[path release];
 }
@@ -253,7 +254,7 @@
 				frame.origin.x = frame.origin.x + (((frame.origin.x + frame.size.width) /2) - 2.5f);
 			}
 			
-			frame.origin.x += 0.5f;
+			//frame.origin.x += 0.5f;
 			frame.origin.y += 2.5f;
 			frame.size.height -= 6;
 			frame.size.width = 5;
@@ -278,7 +279,7 @@
 			
 			frame.origin.y += 0.5f;
 			frame.size.height -= 1;
-			frame.origin.x += 0.5f;
+			//frame.origin.x += 0.5f;
 			frame.size.width = 5;
 			break;
 			
@@ -312,8 +313,8 @@
 	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] sliderTrackColor] set];
 	[path fill];
 	
-	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
-	[path stroke];
+//	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
+//	[path stroke];
 	
 	[path release];
 }
@@ -443,9 +444,9 @@
 		
 	} else {
 		
-		[pathOuter appendBezierPathWithOvalInRect: frame];
-		
-		frame = NSInsetRect(frame, 1, 1);
+//		[pathOuter appendBezierPathWithOvalInRect: frame];
+//		
+//		frame = NSInsetRect(frame, 1, 1);
 		
 		[pathInner appendBezierPathWithOvalInRect: frame];
 	}

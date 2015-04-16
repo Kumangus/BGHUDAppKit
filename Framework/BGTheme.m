@@ -83,32 +83,35 @@
 #pragma mark -
 #pragma mark Slider Theme
 
+#define colorEnable (0.7f)
+#define colorDisable (0.3f)
+
 -(NSColor *)sliderTrackColor {
 	
-	return [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self alphaValue]];
+	return [NSColor colorWithDeviceRed: colorEnable green: colorEnable blue: colorEnable alpha: [self alphaValue]];
 }
 
 -(NSColor *)disabledSliderTrackColor {
 	
-	return [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self disabledAlphaValue]];
+	return [NSColor colorWithDeviceRed: colorDisable green: colorDisable blue: colorDisable alpha: [self disabledAlphaValue]];
 }
 
 -(NSGradient *)knobColor {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.251f green: 0.251f blue: 0.255f alpha: 1.0f]
-										  endingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: 1.0f]] autorelease];
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: colorEnable green: colorEnable blue: colorEnable alpha: 1.0f]
+										  endingColor: [NSColor colorWithDeviceRed: colorEnable green: colorEnable blue: colorEnable alpha: 1.0f]] autorelease];
 }
 
 -(NSGradient *)highlightKnobColor {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.451f green: 0.451f blue: 0.455f alpha: 1.0f]
-										  endingColor: [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: 1.0f]] autorelease];
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: colorEnable green: colorEnable blue: colorEnable alpha: 1.0f]
+										  endingColor: [NSColor colorWithDeviceRed: colorEnable green: colorEnable blue: colorEnable alpha: 1.0f]] autorelease];
 }
 
 -(NSGradient *)disabledKnobColor {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.251f green: 0.251f blue: 0.255f alpha: 1.0f]
-										  endingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: 1.0f]] autorelease];
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: colorDisable green: colorDisable blue: colorDisable alpha: [self disabledAlphaValue]]
+										  endingColor: [NSColor colorWithDeviceRed: colorDisable green: colorDisable blue: colorDisable alpha: [self disabledAlphaValue]]] autorelease];
 }
 
 #pragma mark -

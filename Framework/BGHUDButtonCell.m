@@ -47,7 +47,7 @@
 	
 	if(self) {
 		
-		self.themeKey = @"gradientTheme";
+		self.themeKey = @"flatTheme";
 		buttonType = 0;
 	}
 	
@@ -65,7 +65,7 @@
 			self.themeKey = [aDecoder decodeObjectForKey: @"themeKey"];
 		} else {
 			
-			self.themeKey = @"gradientTheme";
+			self.themeKey = @"flatTheme";
 		}
 		
 		if([aDecoder containsValueForKey: @"BGButtonType"]) {
@@ -426,52 +426,53 @@
 	
 	//Adjust Rect so strokes are true and
 	//shadows are visible
-	frame.origin.x += 1.5f;
-	frame.size.width -= 3;
+	frame.origin.x += 1;
+	frame.size.width -= 2;
 	
 	//Adjust Rect based on ControlSize so that
 	//my controls match as closely to apples
 	//as possible.
-	switch ([self controlSize]) {
-			
-		case NSRegularControlSize:
-			
-			frame.size.height -= 3;
-			break;
-			
-		case NSSmallControlSize:
-			
-			frame.size.height -= 3;
-			break;
-			
-		case NSMiniControlSize:
-			
-			frame.origin.y += 1;
-			frame.size.height -= 5;
-			break;
-	}
+//	switch ([self controlSize]) {
+//			
+//		case NSRegularControlSize:
+//			
+//			frame.size.height -= 3;
+//			break;
+//			
+//		case NSSmallControlSize:
+//			
+//			frame.size.height -= 3;
+//			break;
+//			
+//		case NSMiniControlSize:
+//			
+//			break;
+//	}
+    frame.origin.y += 1;
+    frame.size.height -= 3;
 	
 	//Create Path
 	NSBezierPath *path = [[NSBezierPath alloc] init];
 	
-	[path appendBezierPathWithArcWithCenter: NSMakePoint(NSMinX(frame) + BGCenterY(frame), NSMidY(frame) + 0.5f)
-									 radius: BGCenterY(frame)
-								 startAngle: 90
-								   endAngle: 270];
+    [path appendBezierPathWithRoundedRect:frame xRadius:4 yRadius:4];
+//	[path appendBezierPathWithArcWithCenter: NSMakePoint(NSMinX(frame) + BGCenterY(frame), NSMidY(frame) + 0.5f)
+//									 radius: BGCenterY(frame)
+//								 startAngle: 90
+//								   endAngle: 270];
 	
-	[path appendBezierPathWithArcWithCenter: NSMakePoint(NSMaxX(frame) - BGCenterY(frame), NSMidY(frame) + 0.5f)
-									 radius: BGCenterY(frame)
-								 startAngle: 270
-								   endAngle: 90];
+//	[path appendBezierPathWithArcWithCenter: NSMakePoint(NSMaxX(frame) - BGCenterY(frame), NSMidY(frame) + 0.5f)
+//									 radius: BGCenterY(frame)
+//								 startAngle: 270
+//								   endAngle: 90];
 	
 	[path closePath];
 	[NSGraphicsContext saveGraphicsState];
 	
 	//Draw dark border color
-	if([self isEnabled]) {
-		
-		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] dropShadow] set];
-	}
+//	if([self isEnabled]) {
+//		
+//		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] dropShadow] set];
+//	}
 	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] darkStrokeColor] set];
 	[path stroke];
 	
@@ -504,22 +505,22 @@
 		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] disabledNormalGradient] drawInBezierPath: path angle: 90];
 	}
 	
-	if([self isEnabled]) {
-		
-		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
-	} else {
-		
-		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
-	}
-	[path setLineWidth: 1.0f];
-	[path stroke];
+//	if([self isEnabled]) {
+//		
+//		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
+//	} else {
+//		
+//		[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] strokeColor] set];
+//	}
+//	[path setLineWidth: 1.0f];
+//	[path stroke];
 	
 	[path release];
 	
 	if([self imagePosition] != NSImageOnly) {
 		
 		NSRect textFrame = frame;
-		textFrame.origin.y += 1;
+		//textFrame.origin.y += 5;
 		
 		[self drawTitle: [self attributedTitle] withFrame: textFrame inView: [self controlView]];
 	}
