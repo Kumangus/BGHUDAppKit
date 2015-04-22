@@ -244,25 +244,25 @@
 }
 -(NSGradient *)normalGradient {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.251f green: 0.251f blue: 0.255f alpha: [self alphaValue]]
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: [self alphaValue]]
 										  endingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: [self alphaValue]]] autorelease];
 }
 
 -(NSGradient *)disabledNormalGradient {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.251f green: 0.251f blue: 0.255f alpha: [self disabledAlphaValue]]
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: [self disabledAlphaValue]]
 										  endingColor: [NSColor colorWithDeviceRed: 0.118f green: 0.118f blue: 0.118f alpha: [self disabledAlphaValue]]] autorelease];
 }
 
 -(NSGradient *)pushedGradient {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.451f green: 0.451f blue: 0.455f alpha: [self alphaValue]]
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self alphaValue]]
 										  endingColor: [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self alphaValue]]] autorelease];
 }
 
 -(NSGradient *)highlightGradient {
 	
-	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.451f green: 0.451f blue: 0.455f alpha: [self alphaValue]]
+	return [[[NSGradient alloc] initWithStartingColor: [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self alphaValue]]
 										  endingColor: [NSColor colorWithDeviceRed: 0.318f green: 0.318f blue: 0.318f alpha: [self alphaValue]]] autorelease];
 }
 
